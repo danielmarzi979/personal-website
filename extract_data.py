@@ -7,10 +7,7 @@ e generarli in formato JSON per il sito web
 import os
 import json
 import csv
-import subprocess
-import sys
 from datetime import datetime
-from pathlib import Path
 
 # Percorsi base - modifica secondo la tua configurazione
 P_BASE = "G:\\Il mio Drive\\EdilMerc"
@@ -19,44 +16,6 @@ P_ATT = os.path.join(P_BASE, "Attestati")
 P_INFO = os.path.join(P_BASE, "Info")
 P_REGISTRO = os.path.join(P_BASE, "registro_documenti.csv")
 P_SCADENZE = os.path.join(P_BASE, "scadenze_attestati.json")
-
-def leggi_registro():
-    """Legge il registro documenti"""
-    if not os.path.exists(P_REGISTRO):
-        return []
-    
-    try:
-        with open(P_REGISTRO, encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            return list(reader)
-    except Exception as e:
-        print(f"Errore leggendo registro: {e}")
-        return []
-
-def leggi_scadenze():
-    """Legge le scadenze degli attestati"""
-    if not os.path.exists(P_SCADENZE):
-        return {}
-    
-    try:
-        with open(P_SCADENZE, encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"Errore leggendo scadenze: {e}")
-        return {}
-
-def leggi_stato_cantiere(path_c):
-    """Legge lo stato di un cantiere"""
-    stato_file = os.path.join(path_c, "stato.json")
-    if not os.path.exists(stato_file):
-        return {}
-    
-    try:
-        with open(stato_file, encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"Errore leggendo stato cantiere {path_c}: {e}")
-        return {}
 
 def estrai_cantieri():
     """Estrae i dati dei cantieri"""
@@ -69,9 +28,17 @@ def estrai_cantieri():
     for cartella in os.listdir(P_SICUREZZA):
         path_c = os.path.join(P_SICUREZZA, cartella)
         if os.path.isdir(path_c):
-            stato = leggi_stato_cantiere(path_c)
+            # Leggi stato.json se esiste
+            stato_file = os.path.join(path_c, "stato.json")
+            stato = {}
+            if os.path.exists(stato_file):
+                try:
+                    with open(stato_file, encoding="utf-8") as f:
+                        stato = json.load(f)
+                except:
+                    pass
             
-            # Elenca i documenti
+            # Elenca documenti
             documenti = []
             if os.path.exists(path_c):
                 for file in os.listdir(path_c):
@@ -101,11 +68,19 @@ def estrai_cantieri():
 def estrai_attestati():
     """Estrae i dati degli attestati"""
     attestati = []
-    scadenze = leggi_scadenze()
     
     if not os.path.exists(P_ATT):
         print("Cartella Attestati non trovata")
         return attestati
+    
+    # Leggi scadenze se esiste
+    scadenze = {}
+    if os.path.exists(P_SCADENZE):
+        try:
+            with open(P_SCADENZE, encoding="utf-8") as f:
+                scadenze = json.load(f)
+        except:
+            pass
     
     for file in os.listdir(P_ATT):
         if file.endswith(('.pdf', '.jpg', '.jpeg', '.png')):
@@ -171,24 +146,31 @@ def estrai_collaboratori():
     
     return collaboratori
 
-def estrai_registro_documenti():
+def estrai_registro():
     """Estrae i dati dal registro documenti"""
-    registro = leggi_registro()
+    registro = []
     
-    # Formatta i dati
-    dati_registro = []
-    for doc in registro:
-        dato = {
-            "data": doc.get("data", ""),
-            "ora": doc.get("ora", ""),
-            "cantiere": doc.get("cantiere", ""),
-            "tipo": doc.get("tipo_doc", ""),
-            "nomeFile": doc.get("nome_file", ""),
-            "operazione": doc.get("operazione", "")
-        }
-        dati_registro.append(dato)
+    if not os.path.exists(P_REGISTRO):
+        print("File registro_documenti.csv non trovato")
+        return registro
     
-    return dati_registro
+    try:
+        with open(P_REGISTRO, encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                doc = {
+                    "data": row.get("data", ""),
+                    "ora": row.get("ora", ""),
+                    "cantiere": row.get("cantiere", ""),
+                    "tipo": row.get("tipo_doc", ""),
+                    "nomeFile": row.get("nome_file", ""),
+                    "operazione": row.get("operazione", "")
+                }
+                registro.append(doc)
+    except Exception as e:
+        print(f"Errore leggendo registro: {e}")
+    
+    return registro
 
 def genera_dati_sito():
     """Genera il file JSON con tutti i dati per il sito"""
@@ -198,7 +180,7 @@ def genera_dati_sito():
     cantieri = estrai_cantieri()
     attestati = estrai_attestati()
     collaboratori = estrai_collaboratori()
-    registro = estrai_registro_documenti()
+    registro = estrai_registro()
     
     # Crea il dizionario completo
     dati_completi = {
