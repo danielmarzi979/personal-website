@@ -1,73 +1,22 @@
-// EDILMERC Sito Pubblico - JavaScript Professionale
+// EDILMERC Sito Pubblicizzario - JavaScript Semplice
 
-// Inizializzazione quando il DOM è caricato
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('EDILMERC Sito Pubblico caricato');
-    setupNavigation();
-    setupForm();
-    setupAnimations();
-    setupScrollEffects();
-});
-
-// Setup navigazione principale
-function setupNavigation() {
-    const navButtons = document.querySelectorAll('.nav-btn');
-    
-    navButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            const targetSection = button.getAttribute('data-section');
-            
-            // Rimuovi active da tutti i bottoni
-            navButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Aggiungi active al bottone cliccato
-            button.classList.add('active');
-            
-            // Scroll smooth alla sezione
-            const section = document.getElementById(targetSection);
-            if (section) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const sectionTop = section.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: sectionTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Aggiorna active state durante lo scroll
-    window.addEventListener('scroll', updateActiveNav);
-    updateActiveNav();
-}
-
-// Aggiorna stato attivo della navigazione durante lo scroll
-function updateActiveNav() {
-    const sections = document.querySelectorAll('.section');
-    const navButtons = document.querySelectorAll('.nav-btn');
-    const scrollPosition = window.scrollY + 100;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
+// Funzione per scroll alla sezione contatti
+function scrollToContact() {
+    const contactSection = document.getElementById('contatti');
+    if (contactSection) {
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const sectionTop = contactSection.offsetTop - headerHeight - 20;
         
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            navButtons.forEach(btn => btn.classList.remove('active'));
-            const activeBtn = document.querySelector(`[data-section="${sectionId}"]`);
-            if (activeBtn) {
-                activeBtn.classList.add('active');
-            }
-        }
-    });
+        window.scrollTo({
+            top: sectionTop,
+            behavior: 'smooth'
+        });
+    }
 }
 
 // Setup form contatti
 function setupForm() {
-    const form = document.querySelector('.form');
+    const form = document.getElementById('contact-form');
     
     if (form) {
         form.addEventListener('submit', handleFormSubmit);
@@ -159,7 +108,7 @@ async function handleFormSubmit(e) {
     
     // Simula invio form
     try {
-        // Raccolta dati
+        // Raccogli dati
         const formData = new FormData(form);
         const data = {};
         formData.forEach((value, key) => {
@@ -200,94 +149,6 @@ async function simulateFormSubmission(data) {
     return { success: true };
 }
 
-// Setup animazioni
-function setupAnimations() {
-    // Animazione numeri stats
-    const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateNumbers(entry.target);
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    const statsSection = document.querySelector('.stats');
-    if (statsSection) {
-        statsObserver.observe(statsSection);
-    }
-    
-    // Animazione cards
-    const cardsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('.service-card, .work-card, .stat-item').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        cardsObserver.observe(card);
-    });
-}
-
-// Animazione numeri
-function animateNumbers(container) {
-    const numbers = container.querySelectorAll('.stat-number');
-    
-    numbers.forEach(numberElement => {
-        const finalNumber = numberElement.textContent;
-        const hasPlus = finalNumber.includes('+');
-        const hasPercent = finalNumber.includes('%');
-        
-        let numericValue = parseInt(finalNumber.replace(/\D/g, ''));
-        let currentValue = 0;
-        const increment = numericValue / 50;
-        
-        const timer = setInterval(() => {
-            currentValue += increment;
-            if (currentValue >= numericValue) {
-                currentValue = numericValue;
-                clearInterval(timer);
-            }
-            
-            let displayValue = Math.floor(currentValue);
-            if (hasPlus) displayValue += '+';
-            if (hasPercent) displayValue += '%';
-            
-            numberElement.textContent = displayValue;
-        }, 30);
-    });
-}
-
-// Setup effetti scroll
-function setupScrollEffects() {
-    let lastScrollY = window.scrollY;
-    
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        const header = document.querySelector('.header');
-        
-        // Header scroll effect
-        if (currentScrollY > 100) {
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.boxShadow = 'var(--ombra-leggera)';
-        }
-        
-        lastScrollY = currentScrollY;
-    });
-}
-
 // Sistema notifiche
 function showNotification(message, type = 'info') {
     // Rimuovi notifiche esistenti
@@ -320,40 +181,10 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Gestione pulsanti hero
+// Inizializzazione quando il DOM è caricato
 document.addEventListener('DOMContentLoaded', function() {
-    const primaryBtn = document.querySelector('.hero-buttons .btn-primary');
-    const secondaryBtn = document.querySelector('.hero-buttons .btn-secondary');
-    
-    if (primaryBtn) {
-        primaryBtn.addEventListener('click', () => {
-            const contactSection = document.getElementById('contatti');
-            if (contactSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const sectionTop = contactSection.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: sectionTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
-    
-    if (secondaryBtn) {
-        secondaryBtn.addEventListener('click', () => {
-            const worksSection = document.getElementById('lavori');
-            if (worksSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const sectionTop = worksSection.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: sectionTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
+    console.log('EDILMERC Sito Pubblicizzario caricato');
+    setupForm();
 });
 
 // Stili CSS dinamici per notifiche e errori
@@ -399,11 +230,6 @@ dynamicStyles.textContent = `
         font-size: 0.875rem;
         margin-top: 0.5rem;
         display: block;
-    }
-    
-    .nav-btn.active {
-        background-color: var(--rosso-em);
-        color: white;
     }
     
     @media (max-width: 768px) {

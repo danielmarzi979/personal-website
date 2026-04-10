@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDILMERC - Costruzioni e Ristrutturazioni Professional</title>
+    <title>EDILMERC - Costruzioni e Ristrutturazioni</title>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,12 +16,6 @@
                     <h1>EDILMERC</h1>
                     <span class="tagline">Costruzioni e Ristrutturazioni</span>
                 </div>
-                <nav class="nav">
-                    <button class="nav-btn" data-section="chi-siamo">Chi Siamo</button>
-                    <button class="nav-btn" data-section="servizi">Servizi</button>
-                    <button class="nav-btn" data-section="lavori">Lavori</button>
-                    <button class="nav-btn" data-section="contatti">Contatti</button>
-                </nav>
             </div>
         </div>
     </header>
@@ -30,11 +24,10 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2>Eccellenza nelle Costruzioni e Ristrutturazioni</h2>
-                <p>Con oltre 20 anni di esperienza, EDILMERC è il partner affidabile per i tuoi progetti edili. Qualità, sicurezza e puntualità garantite.</p>
+                <h2>EDILMERC</h2>
+                <p>Impresa edile specializzata in costruzioni, ristrutturazioni e manutenzioni civili e industriali. Qualità, sicurezza e puntualità garantite.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary">Richiedi Preventivo</button>
-                    <button class="btn-secondary">Scopri i Nostri Lavori</button>
+                    <button class="btn-primary" onclick="scrollToContact()">Contattaci Ora</button>
                 </div>
             </div>
         </div>
@@ -43,115 +36,10 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <!-- Chi Siamo -->
-            <section class="section" id="chi-siamo">
-                <div class="section-header">
-                    <h2>Chi Siamo</h2>
-                    <div class="divider"></div>
-                </div>
-                <div class="section-content">
-                    <div class="text-content">
-                        <p>EDILMERC è un'impresa edile specializzata in costruzioni, ristrutturazioni e manutenzioni civili e industriali. Nata dalla passione per l'edilizia e dalla volontà di offrire soluzioni innovative, la nostra azienda si distingue per la qualità dei materiali, la cura dei dettagli e la professionalità del personale.</p>
-                        <p>Ogni progetto per noi è una sfida da affrontare con impegno e competenza, garantendo risultati che superano le aspettative dei clienti.</p>
-                    </div>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <div class="stat-number">20+</div>
-                            <div class="stat-label">Anni di Esperienza</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">150+</div>
-                            <div class="stat-label">Progetti Completati</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">98%</div>
-                            <div class="stat-label">Clienti Soddisfatti</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Servizi -->
-            <section class="section" id="servizi">
-                <div class="section-header">
-                    <h2>I Nostri Servizi</h2>
-                    <div class="divider"></div>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">🏗️</div>
-                        <h3>Costruzioni</h3>
-                        <p>Realizziamo edifici residenziali, commerciali e industriali con materiali di alta qualità e tecnologie all'avanguardia.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🔨</div>
-                        <h3>Ristrutturazioni</h3>
-                        <p>Trasformiamo i tuoi spazi con ristrutturazioni complete, dal design alla realizzazione, con attenzione ai dettagli.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🛡️</div>
-                        <h3>Sicurezza Cantieri</h3>
-                        <p>Gestione completa della sicurezza nei cantieri con POS, PiMUS e DUVRI secondo le normative vigenti.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">📐</div>
-                        <h3>Progettazione</h3>
-                        <p>Servizi di progettazione architettonica e ingegneristica per soluzioni personalizzate e innovative.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🔧</div>
-                        <h3>Manutenzione</h3>
-                        <p>Programmi di manutenzione ordinaria e straordinaria per preservare il valore del tuo immobile nel tempo.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">📋</div>
-                        <h3>Pratiche Edili</h3>
-                        <p>Assistenza completa per tutte le pratiche edilizie, permessi e certificazioni necessarie.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Lavori -->
-            <section class="section" id="lavori">
-                <div class="section-header">
-                    <h2>I Nostri Lavori</h2>
-                    <div class="divider"></div>
-                </div>
-                <div class="works-preview">
-                    <div class="work-card">
-                        <div class="work-placeholder">
-                            <div class="placeholder-icon">🏢</div>
-                            <p>Rendering in arrivo</p>
-                        </div>
-                        <h4>Ristrutturazione Ufficio Commerciale</h4>
-                        <p>Reggio Emilia - 2024</p>
-                    </div>
-                    <div class="work-card">
-                        <div class="work-placeholder">
-                            <div class="placeholder-icon">🏠</div>
-                            <p>Rendering in arrivo</p>
-                        </div>
-                        <h4>Costruzione Villa Residenziale</h4>
-                        <p>Bibbiano - 2023</p>
-                    </div>
-                    <div class="work-card">
-                        <div class="work-placeholder">
-                            <div class="placeholder-icon">🏪</div>
-                            <p>Rendering in arrivo</p>
-                        </div>
-                        <h4>Rinnovo Negozio</h4>
-                        <p>Parma - 2023</p>
-                    </div>
-                </div>
-                <div class="coming-soon">
-                    <p>🎨 Presto disponibili i rendering dei nostri lavori più recenti</p>
-                </div>
-            </section>
-
             <!-- Contatti -->
             <section class="section" id="contatti">
                 <div class="section-header">
-                    <h2>Contattaci</h2>
+                    <h2>Contatti Aziendali</h2>
                     <div class="divider"></div>
                 </div>
                 <div class="contact-content">
@@ -180,18 +68,18 @@
                     </div>
                     <div class="contact-form">
                         <h3>Richiedi Preventivo</h3>
-                        <form class="form">
+                        <form class="form" id="contact-form">
                             <div class="form-group">
-                                <input type="text" placeholder="Nome e Cognome" required>
+                                <input type="text" name="nome" placeholder="Nome e Cognome" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" placeholder="Email" required>
+                                <input type="email" name="email" placeholder="Email" required>
                             </div>
                             <div class="form-group">
-                                <input type="tel" placeholder="Telefono">
+                                <input type="tel" name="telefono" placeholder="Telefono">
                             </div>
                             <div class="form-group">
-                                <select required>
+                                <select name="tipo_lavoro" required>
                                     <option value="">Seleziona tipo lavoro</option>
                                     <option value="ristrutturazione">Ristrutturazione</option>
                                     <option value="costruzione">Costruzione</option>
@@ -200,7 +88,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea placeholder="Descrivi il tuo progetto..." rows="4" required></textarea>
+                                <textarea name="messaggio" placeholder="Descrivi il tuo progetto..." rows="4" required></textarea>
                             </div>
                             <button type="submit" class="btn-primary full-width">Invia Richiesta</button>
                         </form>
@@ -216,7 +104,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>EDILMERC</h3>
-                    <p>Costruzioni e Ristrutturazioni Professional</p>
+                    <p>Impresa Edile Professionale</p>
                     <p>&copy; 2026 Tutti i diritti riservati</p>
                 </div>
                 <div class="footer-section">
@@ -224,8 +112,8 @@
                     <ul>
                         <li>Costruzioni</li>
                         <li>Ristrutturazioni</li>
-                        <li>Manutenzione</li>
-                        <li>Progettazione</li>
+                        <li>Manutenzioni</li>
+                        <li>Pratiche Edili</li>
                     </ul>
                 </div>
                 <div class="footer-section">
