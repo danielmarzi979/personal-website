@@ -1,5 +1,19 @@
 // EDILMERC Sito Pubblicizzario - JavaScript Semplice
 
+// Funzione per scroll alla sezione portfolio
+function scrollToPortfolio() {
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const sectionTop = portfolioSection.offsetTop - headerHeight - 20;
+        
+        window.scrollTo({
+            top: sectionTop,
+            behavior: 'smooth'
+        });
+    }
+}
+
 // Funzione per scroll alla sezione contatti
 function scrollToContact() {
     const contactSection = document.getElementById('contatti');
