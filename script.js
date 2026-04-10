@@ -550,3 +550,182 @@ function simulaBackup() {
         }
     }, 200);
 }
+
+// Funzione per aggiornare l'interfaccia con i dati caricati
+function aggiornaInterfaccia() {
+    console.log('Aggiornamento interfaccia con dati:', edilmercData);
+    
+    // Aggiorna KPI
+    aggiornaKPI();
+    
+    // Aggiorna sezioni
+    aggiornaCantieri();
+    aggiornaAttestati();
+    aggiornaCollaboratori();
+    aggiornaRegistro();
+}
+
+// Funzione per aggiornare i KPI
+function aggiornaKPI() {
+    const dati = edilmercData;
+    
+    // Cantieri attivi
+    const cantieriAttivi = dati.cantieri.filter(c => c.stato === 'in_corso').length;
+    document.querySelector('.kpi-cantieri').textContent = cantieriAttivi;
+    
+    // Attestati validi
+    const attestatiValidi = dati.attestati.filter(a => a.stato === 'valido').length;
+    document.querySelector('.kpi-validi').textContent = attestatiValidi;
+    
+    // In scadenza
+    const inScadenza = dati.attestati.filter(a => a.stato === 'in_scadenza').length;
+    document.querySelector('.kpi-scadenza').textContent = inScadenza;
+    
+    // Scaduti
+    const scaduti = dati.attestati.filter(a => a.stato === 'scaduto').length;
+    document.querySelector('.kpi-scaduti').textContent = scaduti;
+}
+
+// Funzione per aggiornare cantieri
+function aggiornaCantieri() {
+    const container = document.querySelector('.cantieri-container');
+    
+    if (!edilmercData.cantieri || edilmercData.cantieri.length === 0) {
+        container.innerHTML = '<p>Nessun cantiere trovato</p>';
+        return;
+    }
+    
+    let html = '';
+    edilmercData.cantieri.forEach(cantiere => {
+        const statoIcon = cantiere.stato === 'in_corso' ? 'construction' : 'check_circle';
+        const statoColor = cantiere.stato === 'in_corso' ? '#FF8C00' : '#28a745';
+        
+        html += `
+            <div class="cantieri-card">
+                <div class="cantieri-header">
+                    <h3>${cantiere.nome || cantiere.id}</h3>
+                    <span style="color: ${statoColor}">${cantiere.stato || 'sconosciuto'}</span>
+                </div>
+                <div class="cantieri-details">
+                    <p><strong>Comune:</strong> ${cantiere.committente || 'N/A'}</p>
+                    <p><strong>Indirizzo:</strong> ${cantiere.indirizzo || 'N/A'}</p>
+                    <p><strong>Lavoratori:</strong> ${cantiere.nLavoratori || 0}</p>
+                    <p><strong>Periodo:</strong> ${cantiere.dataInizio || 'N/A'} - ${cantiere.dataFine || 'N/A'}</p>
+                </div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+// Funzione per aggiornare attestati
+function aggiornaAttestati() {
+    const container = document.querySelector('.attestati-container');
+    
+    if (!edilmercData.attestati || edilmercData.attestati.length === 0) {
+        container.innerHTML = '<p>Nessun attestato trovato</p>';
+        return;
+    }
+    
+    let html = '';
+    edilmercData.attestati.forEach(attestato => {
+        const statoColor = attestato.stato === 'valido' ? '#28a745' : 
+                          attestato.stato === 'in_scadenza' ? '#ffc107' : '#dc3545';
+        
+        html += `
+            <div class="attestati-card">
+                <div class="attestati-header">
+                    <h3>${attestato.collaboratore}</h3>
+                    <span style="color: ${statoColor}">${attestato.stato}</span>
+                </div>
+                <div class="attestati-details">
+                    <p><strong>Tipo:</strong> ${attestato.tipo}</p>
+                    <p><strong>Scadenza:</strong> ${attestato.scadenza || 'N/A'}</p>
+                </div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+// Funzione per aggiornare collaboratori
+function aggiornaCollaboratori() {
+    const container = document.querySelector('.collaboratori-container');
+    
+    if (!edilmercData.collaboratori || edilmercData.collaboratori.length === 0) {
+        container.innerHTML = '<p>Nessun collaboratore trovato</p>';
+        return;
+    }
+    
+    let html = '';
+    edilmercData.collaboratori.forEach(collaboratore => {
+        html += `
+            <div class="collaboratori-card">
+                <div class="collaboratori-header">
+                    <h3>${collaboratore.nome}</h3>
+                    <span>${collaboratore.ruolo || 'Collaboratore'}</span>
+                </div>
+                <div class="collaboratori-details">
+                    <p><strong>Telefono:</strong> ${collaboratore.telefono || 'N/A'}</p>
+                    <p><strong>Email:</strong> ${collaboratore.email || 'N/A'}</p>
+                    <p><strong>Assunzione:</strong> ${collaboratore.dataAssunzione || 'N/A'}</p>
+                </div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+// Funzione per aggiornare registro
+function aggiornaRegistro() {
+    const container = document.querySelector('.registro-container');
+    
+    if (!edilmercData.registro || edilmercData.registro.length === 0) {
+        container.innerHTML = '<p>Nessun documento nel registro</p>';
+        return;
+    }
+    
+    let html = '<div class="registro-table"><table><thead><tr><th>Data</th><th>Ora</th><th>Cantiere</th><th>Tipo</th><th>File</th><th>Operazione</th></tr></thead><tbody>';
+    
+    edilmercData.registro.slice().reverse().forEach(doc => {
+        html += `
+            <tr>
+                <td>${doc.data || 'N/A'}</td>
+                <td>${doc.ora || 'N/A'}</td>
+                <td>${doc.cantiere || 'N/A'}</td>
+                <td>${doc.tipo || 'N/A'}</td>
+                <td>${doc.nomeFile || 'N/A'}</td>
+                <td>${doc.operazione || 'N/A'}</td>
+            </tr>
+        `;
+    });
+    
+    html += '</tbody></table></div>';
+    container.innerHTML = html;
+}
+
+// Funzione per mostrare notifiche
+function mostraNotifica(messaggio, tipo = 'info') {
+    const notifica = document.createElement('div');
+    notifica.className = `notifica notifica-${tipo}`;
+    notifica.textContent = messaggio;
+    
+    document.body.appendChild(notifica);
+    
+    setTimeout(() => {
+        if (document.body.contains(notifica)) {
+            notifica.remove();
+        }
+    }, 5000);
+}
+
+// Funzione per chiudere modal
+function chiudiModal(element) {
+    const modal = element.closest('.modal');
+    if (modal) {
+        modal.remove();
+    }
+}
