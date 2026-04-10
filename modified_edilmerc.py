@@ -384,6 +384,52 @@ def aggiorna_sito_web():
     except Exception as e:
         logging.error(f"Errore durante aggiornamento sito web: {e}")
 
+# Funzione per aggiornare il sito web
+def aggiorna_sito_web():
+    """Esegue extract_data.py per aggiornare i dati del sito"""
+    try:
+        import subprocess
+        script_path = os.path.join(os.path.dirname(__file__), "extract_data.py")
+        
+        if os.path.exists(script_path):
+            result = subprocess.run([sys.executable, script_path], 
+                                  capture_output=True, text=True, timeout=30)
+            
+            if result.returncode == 0:
+                st.success("Dati estratti con successo!")
+                st.info("Carica i dati su GitHub con il pulsante 'Deploy Sito'")
+            else:
+                st.error(f"Errore nell'estrazione dati: {result.stderr}")
+        else:
+            st.error("Script extract_data.py non trovato")
+            
+    except Exception as e:
+        st.error(f"Errore durante l'estrazione dati: {e}")
+
+# Funzione per deploy automatico su GitHub
+def deploy_sito_web():
+    """Esegue il deploy automatico del sito su GitHub"""
+    try:
+        import subprocess
+        script_path = os.path.join(os.path.dirname(__file__), "auto_deploy.py")
+        
+        if os.path.exists(script_path):
+            with st.spinner("Deploy in corso... estrazione dati e caricamento su GitHub"):
+                result = subprocess.run([sys.executable, script_path], 
+                                      capture_output=True, text=True, timeout=120)
+            
+            if result.returncode == 0:
+                st.success("Deploy completato con successo!")
+                st.info("Il sito sarà aggiornato in 1-2 minuti")
+                st.success("URL: https://danielmarzi979.github.io/personal-website")
+            else:
+                st.error(f"Errore nel deploy: {result.stderr}")
+        else:
+            st.error("Script auto_deploy.py non trovato")
+            
+    except Exception as e:
+        st.error(f"Errore durante il deploy: {e}")
+
 # ── Scadenze JSON ─────────────────────────────────────────────────────────────
 def leggi_scadenze() -> dict:
     if not os.path.exists(P_SCADENZE):
@@ -1748,16 +1794,38 @@ with tab_imp:
                 <li>Dati collaboratori aggiornati</li>
             </ul>
             <div style="text-align:center;">
-                <a href="http://localhost:8000" target="_blank" 
+                <a href="https://danielmarzi979.github.io/personal-website" target="_blank" 
                    style="display:inline-block;padding:0.8rem 2rem;background:linear-gradient(135deg, var(--rosso-em), var(--arancio-em));color:white;text-decoration:none;border-radius:6px;font-weight:700;box-shadow:0 4px 8px rgba(0,0,0,0.1);transition:all 0.3s ease;"
                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'"
-                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
-                    🌐 Apri Sito Web
+                   onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+                   Apri Sito Web
                 </a>
             </div>
-            <p style="color:var(--testo-s);font-size:0.85rem;text-align:center;margin-top:1rem;">
-                <strong>Nota:</strong> Il sito web si aggiorna automaticamente con i dati dell'applicazione
-            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Pulsanti per aggiornamento sito
+        st.markdown("---")
+        st.subheader(" Aggiornamento Sito Web")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            if st.button(" Estrai Dati", use_container_width=True, help="Estrae i dati dall'applicazione per il sito web"):
+                aggiorna_sito_web()
+        
+        with col2:
+            if st.button(" Deploy Sito", use_container_width=True, help="Estrae dati e carica tutto su GitHub automaticamente"):
+                deploy_sito_web()
+        
+        st.markdown("""
+        <div style="background:#f0f8ff;border:1px solid #cce5ff;border-radius:8px;padding:1rem;margin-top:1rem;">
+            <h4 style="color:#0066cc;margin-bottom:0.5rem;"> Come funziona:</h4>
+            <ol style="color:#333;font-size:0.9rem;margin:0;">
+                <li><strong>Estrai Dati:</strong> Estrae i dati dall'applicazione e crea il file JSON</li>
+                <li><strong>Deploy Sito:</strong> Estrae dati + Git commit/push automatico su GitHub</li>
+                <li>Il sito si aggiorna in 1-2 minuti su GitHub Pages</li>
+            </ol>
         </div>
         """, unsafe_allow_html=True)
         
