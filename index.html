@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDILMERC - Sito Web Aziendale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>EDILMERC</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="backup-btn" onclick="showBackupModal()">
+                        <span> Backup</span>
+                    </button>
+                </div>
+                <div class="header-center">
+                    <h1>EDILMERC</h1>
+                    <p>Gestionale Aziendale 2026</p>
+                </div>
+                <div class="header-right">
+                    <div class="logo-edilmerc">
+                        <svg width="60" height="40" viewBox="0 0 60 40">
+                            <rect x="5" y="25" width="8" height="12" fill="#FF8C00"/>
+                            <rect x="15" y="20" width="8" height="17" fill="#E02B2B"/>
+                            <rect x="25" y="15" width="8" height="22" fill="#FF8C00"/>
+                            <rect x="35" y="10" width="8" height="27" fill="#E02B2B"/>
+                            <rect x="45" y="5" width="8" height="32" fill="#FF8C00"/>
+                            <polygon points="13,25 13,20 15,20 15,25" fill="#8B0000"/>
+                            <polygon points="23,20 23,15 25,15 25,20" fill="#8B0000"/>
+                            <polygon points="33,15 33,10 35,10 35,15" fill="#8B0000"/>
+                            <polygon points="43,10 43,5 45,5 45,10" fill="#8B0000"/>
+                        </svg>
+                        <span class="logo-text">EDILMERC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- KPI Dashboard -->
+            <section class="kpi-section">
+                <h2>📊 Dashboard Principale</h2>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🏗️</div>
+                        <div class="kpi-info">
+                            <div class="kpi-title">Cantieri Attivi</div>
+                            <div class="kpi-value kpi-cantieri">0</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">✅</div>
+                        <div class="kpi-info">
+                            <div class="kpi-title">Attestati Validi</div>
+                            <div class="kpi-value kpi-validi">0</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">⏰</div>
+                        <div class="kpi-info">
+                            <div class="kpi-title">In Scadenza</div>
+                            <div class="kpi-value kpi-scadenza">0</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">⚠️</div>
+                        <div class="kpi-info">
+                            <div class="kpi-title">Scaduti</div>
+                            <div class="kpi-value kpi-scaduti">0</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab Navigation -->
+            <section class="tab-navigation">
+                <button class="tab-button active" data-tab="cantieri">🏗️ Cantieri</button>
+                <button class="tab-button" data-tab="attestati">📋 Attestati</button>
+                <button class="tab-button" data-tab="collaboratori">👷 Collaboratori</button>
+                <button class="tab-button" data-tab="registro">📋 Registro Documenti</button>
+            </section>
+
+            <!-- Tab Content -->
+            <div class="tab-content active" id="cantieri">
+                <div class="section-header">
+                    <h2>🏗️ Cantieri Attivi</h2>
+                    <p>Gestione dei cantieri e stato avanzamento lavori</p>
+                </div>
+                <div class="cantieri-container">
+                    <div class="loading-message">
+                        <div class="loading-spinner"></div>
+                        <p>Caricamento dati in corso...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="attestati">
+                <div class="section-header">
+                    <h2>📋 Attestati di Sicurezza</h2>
+                    <p>Monitoraggio scadenze e stato attestati dei lavoratori</p>
+                </div>
+                <div class="attestati-container">
+                    <div class="loading-message">
+                        <div class="loading-spinner"></div>
+                        <p>Caricamento attestati in corso...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="collaboratori">
+                <div class="section-header">
+                    <h2>👷 Collaboratori</h2>
+                    <p>Anagrafica e stato dei collaboratori aziendali</p>
+                </div>
+                <div class="collaboratori-container">
+                    <div class="loading-message">
+                        <div class="loading-spinner"></div>
+                        <p>Caricamento collaboratori in corso...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="registro">
+                <div class="section-header">
+                    <h2>📋 Registro Documenti</h2>
+                    <p>Tracciamento completo di tutte le operazioni sui documenti</p>
+                </div>
+                <div class="registro-container">
+                    <div class="loading-message">
+                        <div class="loading-spinner"></div>
+                        <p>Caricamento registro in corso...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 EDILMERC di Mercurio Davide - Tutti i diritti riservati</p>
+            <div class="footer-links">
+                <a href="mailto:info@edilmerc.it">📧 info@edilmerc.it</a>
+                <a href="tel:+393331234567">📞 +39 333 1234567</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modale Backup -->
+    <div id="backupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🗄️ Backup Dati</h2>
+                <button class="modal-close" onclick="chiudiModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="backup-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p>Backup dei dati in corso...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
