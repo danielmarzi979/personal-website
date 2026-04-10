@@ -1,0 +1,361 @@
+{
+  "cantieri": [
+    {
+      "id": "CANT-2026-001_Via_S._ANtonio_Novi_Di_Modena_(MO)",
+      "nome": "CANT-2026-001_Via_S._ANtonio_Novi_Di_Modena_(MO)",
+      "stato": "completato",
+      "indirizzo": "Via S. ANtonio Novi Di Modena (MO)",
+      "committente": "",
+      "direttoreLavori": "",
+      "nLavoratori": 0,
+      "dataInizio": "",
+      "dataFine": "",
+      "documenti": [
+        {
+          "nome": "PiMUS_CANT-2026-001_Via_S._ANtonio_Novi_Di_Modena_(MO).docx",
+          "tipo": "PiMUS"
+        },
+        {
+          "nome": "POS_CANT-2026-001_Via_S._ANtonio_Novi_Di_Modena_(MO).docx",
+          "tipo": "POS"
+        },
+        {
+          "nome": "PiMUS_CANT-2026-001_Via_S._ANtonio_Novi_Di_Modena_(MO).pdf",
+          "tipo": "PiMUS"
+        },
+        {
+          "nome": "POS_CANT-2026-001_Via_S.Antonio_Novi_di_Modena_(MO).pdf",
+          "tipo": "POS"
+        }
+      ]
+    },
+    {
+      "id": "CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE)",
+      "nome": "CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE)",
+      "stato": "in corso",
+      "indirizzo": "Via Marconi n. 22, 42021 Bibbiano (RE)",
+      "committente": "",
+      "direttoreLavori": "",
+      "nLavoratori": 0,
+      "dataInizio": "",
+      "dataFine": "",
+      "documenti": [
+        {
+          "nome": "POS_CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE).docx",
+          "tipo": "POS"
+        },
+        {
+          "nome": "POS_CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE).pdf",
+          "tipo": "POS"
+        }
+      ]
+    }
+  ],
+  "attestati": [
+    {
+      "id": "ATT-Ponteggio - Davide Mercurio",
+      "collaboratore": "Ponteggio - Davide Mercurio",
+      "tipo": "Altro",
+      "scadenza": "",
+      "stato": "valido",
+      "file": "Ponteggio - Davide Mercurio.pdf"
+    },
+    {
+      "id": "ATT-Ponteggio - Antonio Serio",
+      "collaboratore": "Ponteggio - Antonio Serio",
+      "tipo": "Altro",
+      "scadenza": "",
+      "stato": "valido",
+      "file": "Ponteggio - Antonio Serio.pdf"
+    },
+    {
+      "id": "ATT-Escavatore - Antonio Serio",
+      "collaboratore": "Escavatore - Antonio Serio",
+      "tipo": "Altro",
+      "scadenza": "",
+      "stato": "valido",
+      "file": "Escavatore - Antonio Serio.pdf"
+    },
+    {
+      "id": "ATT-Gru a Torre - Antonio Serio",
+      "collaboratore": "Gru a Torre - Antonio Serio",
+      "tipo": "Altro",
+      "scadenza": "",
+      "stato": "valido",
+      "file": "Gru a Torre - Antonio Serio.pdf"
+    },
+    {
+      "id": "ATT-Carrelli Industriali - Antonio Serio",
+      "collaboratore": "Carrelli Industriali - Antonio Serio",
+      "tipo": "Altro",
+      "scadenza": "",
+      "stato": "valido",
+      "file": "Carrelli Industriali - Antonio Serio.pdf"
+    },
+    {
+      "id": "ATT-Alto Rischio - Ahmed Tamer",
+      "collaboratore": "Alto Rischio - Ahmed Tamer",
+      "tipo": "Altro",
+      "scadenza": "",
+      "stato": "valido",
+      "file": "Alto Rischio - Ahmed Tamer.pdf"
+    },
+    {
+      "id": "ATT-Lavori in Quota - Ahmed Tamer",
+      "collaboratore": "Lavori in Quota - Ahmed Tamer",
+      "tipo": "Altro",
+      "scadenza": "",
+      "stato": "valido",
+      "file": "Lavori in Quota - Ahmed Tamer.pdf"
+    },
+    {
+      "id": "ATT-PLE - Ahmed Tamer",
+      "collaboratore": "PLE - Ahmed Tamer",
+      "tipo": "Altro",
+      "scadenza": "",
+      "stato": "valido",
+      "file": "PLE - Ahmed Tamer.pdf"
+    },
+    {
+      "id": "ATT-Ponteggio - Ahmed Tamer",
+      "collaboratore": "Ponteggio - Ahmed Tamer",
+      "tipo": "Altro",
+      "scadenza": "",
+      "stato": "valido",
+      "file": "Ponteggio - Ahmed Tamer.pdf"
+    }
+  ],
+  "collaboratori": [
+    {
+      "id": "COL-Durc Davide Mercurio",
+      "nome": "Durc Davide Mercurio",
+      "ruolo": "Collaboratore",
+      "telefono": "",
+      "email": "",
+      "dataAssunzione": "",
+      "stato": "attivo",
+      "file": "Durc Davide Mercurio.pdf"
+    },
+    {
+      "id": "COL-DVR EDILMERC",
+      "nome": "DVR EDILMERC",
+      "ruolo": "Collaboratore",
+      "telefono": "",
+      "email": "",
+      "dataAssunzione": "",
+      "stato": "attivo",
+      "file": "DVR EDILMERC.pdf"
+    },
+    {
+      "id": "COL-Durc Antonio Serio",
+      "nome": "Durc Antonio Serio",
+      "ruolo": "Collaboratore",
+      "telefono": "",
+      "email": "",
+      "dataAssunzione": "",
+      "stato": "attivo",
+      "file": "Durc Antonio Serio.pdf"
+    },
+    {
+      "id": "COL-Visura Camerale Antonio Serio",
+      "nome": "Visura Camerale Antonio Serio",
+      "ruolo": "Collaboratore",
+      "telefono": "",
+      "email": "",
+      "dataAssunzione": "",
+      "stato": "attivo",
+      "file": "Visura Camerale Antonio Serio.pdf"
+    },
+    {
+      "id": "COL-Visura Camerale Lala Esat",
+      "nome": "Visura Camerale Lala Esat",
+      "ruolo": "Collaboratore",
+      "telefono": "",
+      "email": "",
+      "dataAssunzione": "",
+      "stato": "attivo",
+      "file": "Visura Camerale Lala Esat.pdf"
+    },
+    {
+      "id": "COL-Visura Camerale Davide Mercurio",
+      "nome": "Visura Camerale Davide Mercurio",
+      "ruolo": "Collaboratore",
+      "telefono": "",
+      "email": "",
+      "dataAssunzione": "",
+      "stato": "attivo",
+      "file": "Visura Camerale Davide Mercurio.pdf"
+    },
+    {
+      "id": "COL-WhatsApp Image 2026-03-27 at 11.48.41",
+      "nome": "WhatsApp Image 2026-03-27 at 11.48.41",
+      "ruolo": "Collaboratore",
+      "telefono": "",
+      "email": "",
+      "dataAssunzione": "",
+      "stato": "attivo",
+      "file": "WhatsApp Image 2026-03-27 at 11.48.41.jpeg"
+    },
+    {
+      "id": "COL-WhatsApp Image 2026-03-27 at 11.48.46",
+      "nome": "WhatsApp Image 2026-03-27 at 11.48.46",
+      "ruolo": "Collaboratore",
+      "telefono": "",
+      "email": "",
+      "dataAssunzione": "",
+      "stato": "attivo",
+      "file": "WhatsApp Image 2026-03-27 at 11.48.46.jpeg"
+    },
+    {
+      "id": "COL-TARI_Compilato_EdilMerc",
+      "nome": "TARI_Compilato_EdilMerc",
+      "ruolo": "Collaboratore",
+      "telefono": "",
+      "email": "",
+      "dataAssunzione": "",
+      "stato": "attivo",
+      "file": "TARI_Compilato_EdilMerc.pdf"
+    },
+    {
+      "id": "COL-Patente a crediti Davide Mercurio",
+      "nome": "Patente a crediti Davide Mercurio",
+      "ruolo": "Collaboratore",
+      "telefono": "",
+      "email": "",
+      "dataAssunzione": "",
+      "stato": "attivo",
+      "file": "Patente a crediti Davide Mercurio.pdf"
+    }
+  ],
+  "registro": [
+    {
+      "data": "08/04/2026",
+      "ora": "23:54",
+      "cantiere": "CANT-2026-002",
+      "tipo": "POS",
+      "nomeFile": "POS_CANT-2026-002.docx",
+      "operazione": "Creazione Word"
+    },
+    {
+      "data": "08/04/2026",
+      "ora": "23:54",
+      "cantiere": "CANT-2026-002",
+      "tipo": "POS",
+      "nomeFile": "POS_CANT-2026-002.pdf",
+      "operazione": "Creazione PDF"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "11:34",
+      "cantiere": "CANT-2026-002",
+      "tipo": "POS",
+      "nomeFile": "POS_CANT-2026-002.docx",
+      "operazione": "Creazione Word"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "11:41",
+      "cantiere": "CANT-2026-002",
+      "tipo": "POS",
+      "nomeFile": "POS_CANT-2026-002.pdf",
+      "operazione": "Creazione PDF"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:04",
+      "cantiere": "CANT-2026-002",
+      "tipo": "POS",
+      "nomeFile": "POS_CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE).docx",
+      "operazione": "Rinomina manuale"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:04",
+      "cantiere": "CANT-2026-002",
+      "tipo": "POS",
+      "nomeFile": "POS_CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE).pdf",
+      "operazione": "Rinomina manuale"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:12",
+      "cantiere": "VIA S. ANTONIO NOVI DI MODENA (MO)",
+      "tipo": "PiMUS",
+      "nomeFile": "PiMUS_VIA S. ANTONIO NOVI DI MODENA (MO)_Via_S.Antonio_Novi_di_Modena_(MO).docx",
+      "operazione": "Rinomina manuale"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:12",
+      "cantiere": "VIA S. ANTONIO NOVI DI MODENA (MO)",
+      "tipo": "POS",
+      "nomeFile": "POS_VIA S. ANTONIO NOVI DI MODENA (MO)_Via_S.Antonio_Novi_di_Modena_(MO).docx",
+      "operazione": "Rinomina manuale"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:12",
+      "cantiere": "VIA S. ANTONIO NOVI DI MODENA (MO)",
+      "tipo": "PiMUS",
+      "nomeFile": "PiMUS_VIA S. ANTONIO NOVI DI MODENA (MO)_Via_S.Antonio_Novi_di_Modena_(MO).pdf",
+      "operazione": "Rinomina manuale"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:12",
+      "cantiere": "VIA S. ANTONIO NOVI DI MODENA (MO)",
+      "tipo": "POS",
+      "nomeFile": "POS_VIA S. ANTONIO NOVI DI MODENA (MO)_Via_S.Antonio_Novi_di_Modena_(MO).pdf",
+      "operazione": "Rinomina manuale"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:23",
+      "cantiere": "CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE)",
+      "tipo": "",
+      "nomeFile": "",
+      "operazione": "Rinomina cartella cantiere"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:23",
+      "cantiere": "CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE)",
+      "tipo": "POS",
+      "nomeFile": "POS_CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE)_Via_Marconi_n._22_42021_Bibbiano_(RE).docx",
+      "operazione": "Rinomina manuale"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:23",
+      "cantiere": "CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE)",
+      "tipo": "POS",
+      "nomeFile": "POS_CANT-2026-002_Via_Marconi_n._22_42021_Bibbiano_(RE)_Via_Marconi_n._22_42021_Bibbiano_(RE).pdf",
+      "operazione": "Rinomina manuale"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:24",
+      "cantiere": "CANT-2026-001_Via_S._ANtonio_Novi_Di_Modena_(MO)",
+      "tipo": "",
+      "nomeFile": "",
+      "operazione": "Rinomina cartella cantiere"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:24",
+      "cantiere": "CANT-2026-001_Via_S._ANtonio_Novi_Di_Modena_(MO)",
+      "tipo": "POS",
+      "nomeFile": "POS_CANT-2026-001_Via_S._ANtonio_Novi_Di_Modena_(MO)_Via_S._ANtonio_Novi_Di_Modena_(MO).docx",
+      "operazione": "Rinomina manuale"
+    },
+    {
+      "data": "10/04/2026",
+      "ora": "12:24",
+      "cantiere": "CANT-2026-001_Via_S._ANtonio_Novi_Di_Modena_(MO)",
+      "tipo": "POS",
+      "nomeFile": "POS_CANT-2026-001_Via_S._ANtonio_Novi_Di_Modena_(MO)_Via_S._ANtonio_Novi_Di_Modena_(MO).pdf",
+      "operazione": "Rinomina manuale"
+    }
+  ],
+  "ultima_modifica": "10/04/2026 14:27:30"
+}
